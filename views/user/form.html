@@ -1,0 +1,34 @@
+
+
+<div class="pageContent">
+	<form method="post" 
+	{{if eq .op "a"}}
+	action="/admin/user/add" 
+	{{else}}
+	action="/admin/user/mdy" 
+	{{end}}
+	class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<div class="pageFormContent" layoutH="56">
+			<p>
+				<label>服务器名称</label>
+				<input name="id" type="hidden" value="{{.m.Id}}" /> 
+				<input name="username" class="required" value="{{.m.Username}}"   type="text" size="30"   />
+			</p>
+			 
+			 
+		     <p>
+				<label>登入密码</label>
+				<input type="password" class="required"  value="{{.m.Password}}"   name="password" class="textInput">
+			</p>
+			 
+		</div>
+		<div class="formBar">
+			<ul> 
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">关闭</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>

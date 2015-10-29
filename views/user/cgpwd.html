@@ -1,0 +1,33 @@
+
+
+<div class="pageContent">
+	<form method="post"  
+	action="/admin/changepwd"  
+	class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<div class="pageFormContent" layoutH="56"> 
+			 
+			 
+		     <p>
+				<label>登入密码</label>
+				<input type="password" class="required"      name="password" class="textInput">
+			</p>
+			 <p>
+				<label>新密码</label>
+				<input type="password" class="required"      name="newpassword1" class="textInput">
+			</p>
+			<p>
+				<label>确认新密码</label>
+				<input type="password" class="required"      name="newpassword2" class="textInput">
+			</p>
+			 
+		</div>
+		<div class="formBar">
+			<ul> 
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">关闭</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>

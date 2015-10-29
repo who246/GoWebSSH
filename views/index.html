@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GoWebSSH-服务器管理平台</title>
+
+{{template "common/commonsouce.html"}}
+<script type="text/javascript">
+$(function(){
+	DWZ.init("/static/dwz.frag.xml", {
+		loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框 
+		statusCode:{ok:200, error:300, timeout:301}, //【可选】
+		pageInfo:{pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"}, //【可选】
+		keys: {statusCode:"statusCode", message:"message"}, //【可选】
+		ui:{hideMode:'offsets'}, //【可选】hideMode:navTab组件切换的隐藏方式，支持的值有’display’，’offsets’负数偏移位置的值，默认值为’display’
+		debug:false,	// 调试模式 【true|false】
+		callback:function(){
+			initEnv();
+			$("#themeList").theme({themeBase:"themes"}); // themeBase 相对于index页面的主题base路径
+		}
+	});
+});
+
+</script>
+</head>
+
+<body scroll="no">
+	<div id="layout">
+		<div id="header">
+			<div class="headerNav">
+				<a class="logo" href="#"></a>
+				<ul class="nav">
+					 
+					<li><a href="/admin/showchangepwd" target="dialog" width="600">修改密码</a></li>
+					<li><a href="#" target="_blank">博客</a></li>
+					<li><a href="#" target="_blank">微博</a></li>
+					<li><a href="logout">退出</a></li>
+				</ul>
+				
+			</div>
+
+			<!-- navMenu -->
+			
+		</div>
+
+		<div id="leftside">
+			<div id="sidebar_s">
+				<div class="collapse">
+					<div class="toggleCollapse"><div></div></div>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div class="toggleCollapse"><h2>主菜单</h2><div>收缩</div></div>
+
+				<div class="accordion" fillSpace="sidebar">
+					<div class="accordionHeader">
+						<h2><span>Folder</span>功能</h2>
+					</div>
+					<div class="accordionContent">
+						<ul class="tree treeFolder">
+							<li><a href="tabsPage.html" target="navTab">功能目录</a>
+								<ul>
+									<li><a href="/admin/service/list" target="navTab" rel="page1">服务器</a></li>
+									<li><a href="/admin/cmd/list" target="navTab" rel="external">命令</a></li>
+									<li><a href="/admin/user/list" target="navTab" rel="external">用户管理</a></li>
+								</ul>
+							</li>
+							
+							 
+						</ul>
+					</div>
+					
+					 
+				</div>
+			</div>
+		</div>
+		<div id="container">
+			<div id="navTab" class="tabsPage">
+				<div class="tabsPageHeader">
+					<div class="tabsPageHeaderContent"><!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
+						<ul class="navTab-tab">
+							<li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">我的主页</span></span></a></li>
+						</ul>
+					</div>
+					<div class="tabsLeft">left</div><!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
+					<div class="tabsRight">right</div><!-- 禁用只需要添加一个样式 class="tabsRight tabsRightDisabled" -->
+					<div class="tabsMore">more</div>
+				</div>
+				<ul class="tabsMoreList">
+					<li><a href="javascript:;">主目录</a></li>
+				</ul>
+				                             <div class="navTab-panel tabsPageContent layoutBox">
+					<div class="page unitBox">
+						<h2 class="contentTitle">GoWebSSH介绍</h2>
+						 
+						<div class="pageContent" layouth="42" style="height: 115px; overflow: auto;">
+						
+						<textarea style="width:95%;height:200px">
+							GoWebSSH-服务器管理平台 
+							管理Linux服务器和命令
+							主要改造于java版本的keybox：https://github.com/skavanagh/KeyBox
+							</textarea> 
+						</div>
+						 
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="footer">Copyright &copy; 2010 <a href="#" target="dialog">搜车支付</a> </div>
+ 
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+ 
+    <style>body, #terminal_{{.id}} {position: absolute; height: 90%; width: 100%; margin: 0px;}</style>
+	
+    <button class="dlog_reload_{{.id}}"  value="{{.id}}">刷新</button>
+    <div id="terminal_{{.id}}">
+	
+	</div>
+   
+    <script type="text/javascript">
+	 
+$(document).ready(function(){
+   $(".dlog_reload_{{.id}}").click(function(){ 
+        var id= $(this).val();
+		close(id); 
+		openDilog(id)
+     });
+    var openWs = function() {
+      var  ws = new WebSocket("ws://{{.host}}/admin/ws?id={{.id}}&cmdId={{.cmdId}}");
+        map.put({{.id}},ws);
+        var term;
+
+        var pingTimer;
+
+        ws.onopen = function(event) {
+
+
+            hterm.defaultStorage = new lib.Storage.Local();
+            hterm.defaultStorage.clear();
+
+            term = new hterm.Terminal();
+
+            term.getPrefs().set("send-encoding", "raw");
+
+            term.onTerminalReady = function() {
+                var io = term.io.push();
+
+                io.onVTKeystroke = function(str) {
+                    ws.send(str);
+                };
+
+                io.sendString = io.onVTKeystroke;
+
+               
+
+                term.installKeyboard();
+            };
+
+            term.decorate(document.getElementById("terminal_{{.id}}"));
+        };
+
+        ws.onmessage = function(event) {
+                term.io.writeUTF8(window.atob(event.data));
+            
+        };
+
+        ws.onclose = function(event) {
+            if (term) {
+                term.uninstallKeyboard();
+                term.io.showOverlay("Connection Closed", null);
+            }
+            
+        };
+    }
+
+    openWs();
+	
+		
+   });
+	
+	 
+	
+	</script>

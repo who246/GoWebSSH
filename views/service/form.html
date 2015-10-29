@@ -1,0 +1,42 @@
+
+
+<div class="pageContent">
+	<form method="post" 
+	{{if eq .op "a"}}
+	action="/admin/service/add" 
+	{{else}}
+	action="/admin/service/mdy" 
+	{{end}}
+	class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<div class="pageFormContent" layoutH="56">
+			<p>
+				<label>服务器名称</label>
+				<input name="id" type="hidden" value="{{.m.Id}}" />
+				<input name="username" type="hidden" value="{{.m.Username}}" />
+				<input name="serverName" class="required" value="{{.m.ServerName}}"   type="text" size="30"   />
+			</p>
+			<p>
+				<label>服务器IP</label>
+				<input name="ip" class="required" value="{{.m.Ip}}" type="text" size="30"  />
+			</p>
+			 
+			<p>
+				<label>登入用户</label>
+				<input type="text" class="required"  value="{{.m.LoginName}}" name="loginName" class="textInput">
+			</p>
+		     <p>
+				<label>登入密码</label>
+				<input type="password" class="required"  value="{{.m.LoginPassword}}"   name="loginPassword" class="textInput">
+			</p>
+			 
+		</div>
+		<div class="formBar">
+			<ul> 
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">关闭</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>
