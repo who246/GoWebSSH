@@ -5,7 +5,8 @@ package models
 import ( 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	_ "github.com/mattn/go-sqlite3" 
+	_ "github.com/mattn/go-sqlite3"  
+	 
 )
 
 
@@ -25,4 +26,9 @@ func CreateTable() {
     if err != nil {
         beego.Error(err)
     }
+	exit := orm.NewOrm().QueryTable("user").Filter("username","admin").Exist();
+	if !exit { 
+	  user := User{Username:"admin",Password:"admin"}
+	  orm.NewOrm().Insert(&user)
+	} 
 }
