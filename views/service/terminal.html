@@ -1,11 +1,10 @@
+
  
     <style>body, #terminal_{{.id}} {position: absolute; height: 90%; width: 100%; margin: 0px;}</style>
 	
     <button class="dlog_reload_{{.id}}"  value="{{.id}}">刷新</button>
     <div id="terminal_{{.id}}">
-	
 	</div>
-   
     <script type="text/javascript">
 	 
 $(document).ready(function(){
@@ -16,7 +15,7 @@ $(document).ready(function(){
      });
     var openWs = function() {
       var  ws = new WebSocket("ws://{{.host}}/admin/ws?id={{.id}}&cmdId={{.cmdId}}");
-        map.put({{.id}},ws);
+       map.put({{.id}},ws);
         var term;
 
         var pingTimer;
@@ -35,7 +34,7 @@ $(document).ready(function(){
                 var io = term.io.push();
 
                 io.onVTKeystroke = function(str) {
-                    ws.send(str);
+                   ws.send(str);
                 };
 
                 io.sendString = io.onVTKeystroke;
@@ -70,3 +69,4 @@ $(document).ready(function(){
 	 
 	
 	</script>
+	

@@ -1,0 +1,45 @@
+ 
+<!--
+  term.js
+  Copyright (c) 2012-2013, Christopher Jeffrey (MIT License)
+-->
+ <style>body, #terminal_{{.id}} {position: absolute; height: 90%; width: 100%; margin: 0px;}</style>
+ <button class="dlog_reload_{{.id}}"  value="{{.id}}">刷新</button>
+ <div id="terminal_{{.id}}">
+
+ </div>
+<script>
+$(document).ready(function(){
+	 $(".dlog_reload_{{.id}}").click(function(){ 
+        var id= $(this).val();
+		close(id); 
+		openDilog(id)
+     });
+	var openWs = function() {
+	   var  ws = new WebSocket("ws://{{.host}}/admin/ws?id={{.id}}&cmdId={{.cmdId}}");
+       map.put({{.id}},ws);
+	  var term = new Terminal({  
+        rows: 21,
+        useStyle: true,
+        screenKeys: true,
+        cursorBlink: false
+      });
+	 term.on('data', function(data) {
+      ws.send(data);
+     });
+	 term.open(document.getElementById("terminal_{{.id}}"));
+	  ws.onmessage = function(event) {
+         term.write(window.atob(event.data));
+      };
+	   ws.onclose = function(event) {
+            if (term) {
+                term.destroy(); 
+            }
+            
+        };
+	}
+  
+      openWs();
+ 
+});
+</script>

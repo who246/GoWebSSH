@@ -11,7 +11,7 @@ func init() {
 	beego.Router("/admin/index", &controllers.MainController{},"*:Admin")
 	beego.Router("/admin/ws", &controllers.WSController{})
 	beego.Router("/admin/service/list", &controllers.ServiceController{},"*:List")
-	beego.Router("/admin/service/trim", &controllers.ServiceController{},"*:Trim")
+	beego.Router("/admin/service/trim", &controllers.ServiceController{},"*:Trim") 
 	beego.Router("/admin/service/add", &controllers.ServiceController{},"get:AddShow")
 	beego.Router("/admin/service/add", &controllers.ServiceController{},"post:Add")
 	beego.Router("/admin/service/del", &controllers.ServiceController{},"post:Del")

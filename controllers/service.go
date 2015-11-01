@@ -44,8 +44,9 @@ func (this *ServiceController) Trim() {
 	this.Data["host"] = this.Ctx.Request.Host
 	this.Data["id"]= this.GetString("id")
 	this.Data["cmdId"]= this.GetString("cmdId") 
-	this.TplNames = "service/terminal.html"
+	this.TplNames = "service/term2.html"
 }
+
 func (this *ServiceController) Add() {
 	serverName := this.GetString("serverName")
 	ip := this.GetString("ip")

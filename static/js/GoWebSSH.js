@@ -7,6 +7,7 @@
 		return true;
 	}
 	 function openDilog(id,title,cmdId){
-		var opt ={mask:false,close:close,param:id} 
+		var opt ={mask:false,height:350, close:close,param:id} 
 		$.pdialog.open("/admin/service/trim?id="+id+(cmdId==null||cmdId==""?"":("&cmdId="+cmdId)),id, title,opt);　 
 	}
+ 
