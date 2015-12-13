@@ -1,4 +1,4 @@
-GoWebSSH －web server manager 服务器及命令管理
+GoWebSSH －web server manager 服务器及命令管理/WebSocket技术
 ====
 ![GoWebSSH1](http://img.hoop8.com/attachments/1512/2901942174897.jpg) 
 
