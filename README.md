@@ -1,10 +1,10 @@
 GoWebSSH －web server manager 服务器及命令管理/WebSocket技术
 ====
-![GoWebSSH1](http://img.hoop8.com/attachments/1512/2901942174897.jpg) 
+![GoWebSSH1](http://static.oschina.net/uploads/space/2015/1213/234715_XFqj_945573.jpg) 
 
-![GoWebSSH2](http://img.hoop8.com/attachments/1512/3471942174897.jpg) 
+![GoWebSSH2](http://static.oschina.net/uploads/space/2015/1213/234726_z8SB_945573.jpg) 
 
-![GoWebSSH3](http://img.hoop8.com/attachments/1512/3681942174897.jpg) 
+![GoWebSSH3](http://static.oschina.net/uploads/space/2015/1213/234726_z8SB_945573.jpg) 
 ##go get github.com/who246/GoWebSSH
 ##go build
 ##./GoWebSSH
